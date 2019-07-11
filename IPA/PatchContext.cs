@@ -46,7 +46,7 @@ namespace IPA
             context.ManagedPath = Path.Combine(context.DataPathDst, "Managed");
             context.EngineFile = Path.Combine(context.ManagedPath, "UnityEngine.CoreModule.dll");
             context.AssemblyFile = Path.Combine(context.ManagedPath, "Assembly-CSharp.dll");
-            context.BackupPath = Path.Combine(context.IPARoot, "Backups", context.ProjectName);
+            context.BackupPath = Path.Combine(Path.Combine(context.IPARoot, "Backups"), context.ProjectName);
             string shortcutName = $"{context.ProjectName} (Patch & Launch)";
             context.ShortcutPath = Path.Combine(context.ProjectRoot, shortcutName) + ".lnk";
 

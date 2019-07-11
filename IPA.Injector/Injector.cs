@@ -61,8 +61,6 @@ namespace IPA.Injector
                 
                 InstallBootstrapPatch();
 
-                Updates.InstallPendingUpdates();
-
                 LibLoader.SetupAssemblyFilenames(true);
 
                 pluginAsyncLoadTask = PluginLoader.LoadTask();
@@ -100,7 +98,7 @@ namespace IPA.Injector
             var gameName = dataDir.Substring(0, dataDir.Length - 5);
 
             loader.Debug("Finding backup");
-            var backupPath = Path.Combine(Environment.CurrentDirectory, "IPA", "Backups", gameName);
+            var backupPath = Path.Combine(Path.Combine(Path.Combine(Environment.CurrentDirectory, "IPA"), "Backups"), gameName);
             var bkp = BackupManager.FindLatestBackup(backupPath);
             if (bkp == null)
                 loader.Warn("No backup found! Was BSIPA installed using the installer?");
@@ -271,7 +269,7 @@ namespace IPA.Injector
             pluginAsyncLoadTask.Wait();
             permissionFixTask.Wait();
             log.Debug("Plugins loaded");
-            log.Debug(string.Join(", ", PluginLoader.PluginsMetadata));
+            log.Debug(string.Join(", ", PluginLoader.PluginsMetadata.Select(meta => meta.ToString()).ToArray()));
             PluginComponent.Create();
         }
     }

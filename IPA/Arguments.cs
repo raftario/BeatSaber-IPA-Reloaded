@@ -157,7 +157,7 @@ flags:
             foreach (var flag in flagObjects)
             {
                 flagsBuilder.AppendFormat("{2}{0}{3}{1}", 
-                    string.Join(", ", flag.ShortFlags.Select(s => $"-{s}").Concat( flag.LongFlags.Select(s => $"--{s}")) ), 
+                    string.Join(", ", flag.ShortFlags.Select(s => $"-{s}").Concat( flag.LongFlags.Select(s => $"--{s}")).ToArray() ), 
                     Environment.NewLine, indent, flag.ValueString != null ? "=" + flag.ValueString : "");
                 flagsBuilder.AppendFormat("{2}{2}{0}{1}", flag.DocString, Environment.NewLine, indent);
             }
@@ -165,7 +165,7 @@ flags:
             Console.Write(format, filename, flagsBuilder, indent);
         }
 
-        public IReadOnlyList<string> PositionalArgs => positional;
+        public List<string> PositionalArgs => positional;
     }
 
     public class ArgumentFlag

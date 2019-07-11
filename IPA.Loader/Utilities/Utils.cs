@@ -109,7 +109,7 @@ namespace IPA.Utilities
                 try
                 {
                     if (fi.Name == appendFileName)
-                        File.AppendAllLines(Path.Combine(target.ToString(), fi.Name), File.ReadAllLines(fi.FullName));
+                        File.AppendAllText(Path.Combine(target.ToString(), fi.Name), String.Join("\n", File.ReadAllLines(fi.FullName)));
                     else
                         fi.CopyTo(Path.Combine(target.ToString(), fi.Name), true);
                 }

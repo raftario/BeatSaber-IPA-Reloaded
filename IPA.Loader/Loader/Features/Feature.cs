@@ -160,7 +160,7 @@ namespace IPA.Loader.Features
                                 if (parens != 1) goto default;
                                 removeWhitespace = true;
                                 name = builder.ToString();
-                                builder.Clear();
+                                builder.Remove(0, builder.Length);
                                 break;
                             case ')':
                                 parens--;
@@ -169,7 +169,7 @@ namespace IPA.Loader.Features
                             case ',':
                                 if (parens > 1) goto default;
                                 parameters.Add(builder.ToString());
-                                builder.Clear();
+                                builder.Remove(0, builder.Length);
                                 removeWhitespace = true;
                                 break;
                             default:

@@ -25,7 +25,7 @@ namespace IPA.Config
         /// Gets a dynamic object providing access to the configuration.
         /// </summary>
         /// <value>a dynamically bound object to use to access config values directly</value>
-        dynamic Dynamic { get; }
+        object Dynamic { get; }
 
         #region State getters
         /// <summary>

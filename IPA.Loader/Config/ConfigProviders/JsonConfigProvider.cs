@@ -19,7 +19,7 @@ namespace IPA.Config.ConfigProviders
         private JObject jsonObj;
 
         // TODO: create a wrapper that allows empty object creation
-        public dynamic Dynamic => jsonObj;
+        public object Dynamic => jsonObj;
 
         public bool HasChanged { get; private set; }
         public bool InMemoryChanged { get; set; }
@@ -72,13 +72,6 @@ namespace IPA.Config.ConfigProviders
         {
             jsonObj.PropertyChanged += JsonObj_PropertyChanged;
             jsonObj.ListChanged += JsonObj_ListChanged;
-            jsonObj.CollectionChanged += JsonObj_CollectionChanged;
-        }
-
-        private void JsonObj_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            HasChanged = true;
-            InMemoryChanged = true;
         }
 
         private void JsonObj_ListChanged(object sender, ListChangedEventArgs e)

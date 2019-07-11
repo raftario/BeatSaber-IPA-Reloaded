@@ -101,13 +101,13 @@ namespace IPA.Config
         /// </summary>
         /// <param name="plugin">the plugin to get the preferences file for</param>
         public ModPrefs(PluginLoader.PluginMetadata plugin) {
-            _instance = new IniFile(Path.Combine(Environment.CurrentDirectory, "UserData", "ModPrefs",
+            _instance = new IniFile(Path.Combine(Path.Combine(Path.Combine(Environment.CurrentDirectory, "UserData"), "ModPrefs"),
                 $"{plugin.Name}.ini"));
         }
 
         private ModPrefs()
         {
-            _instance = new IniFile(Path.Combine(Environment.CurrentDirectory, "UserData", "modprefs.ini"));
+            _instance = new IniFile(Path.Combine(Path.Combine(Environment.CurrentDirectory, "UserData"), "modprefs.ini"));
         }
 
         string IModPrefs.GetString(string section, string name, string defaultValue, bool autoSave)

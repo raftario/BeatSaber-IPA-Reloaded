@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPA", "IPA\IPA.csproj", "{14092533-98BB-40A4-9AFC-27BB75672A70}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -37,11 +37,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectDependencies", "BuildTools\CollectDependencies\CollectDependencies.csproj", "{5F33B310-DC8D-4C0D-877E-BAC3908DE10F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyRenameStep", "BuildTools\AssemblyRenameStep\AssemblyRenameStep.csproj", "{E2CCDD2F-1D4F-4B06-9CD4-E0D2B9AE543A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSIPA-ModList", "BSIPA-ModList\BSIPA-ModList.csproj", "{23AB2621-A05C-4377-8418-85E6012C0BBE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5F33B310-DC8D-4C0D-877E-BAC3908DE10F} = {5F33B310-DC8D-4C0D-877E-BAC3908DE10F}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,14 +92,6 @@ Global
 		{E2CCDD2F-1D4F-4B06-9CD4-E0D2B9AE543A}.Verbose_Release|x64.Build.0 = Release|Any CPU
 		{E2CCDD2F-1D4F-4B06-9CD4-E0D2B9AE543A}.Verbose|x64.ActiveCfg = Release|Any CPU
 		{E2CCDD2F-1D4F-4B06-9CD4-E0D2B9AE543A}.Verbose|x64.Build.0 = Release|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Debug|x64.Build.0 = Debug|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Release|x64.ActiveCfg = Release|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Release|x64.Build.0 = Release|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Verbose_Release|x64.ActiveCfg = Release|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Verbose_Release|x64.Build.0 = Release|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Verbose|x64.ActiveCfg = Release|Any CPU
-		{23AB2621-A05C-4377-8418-85E6012C0BBE}.Verbose|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

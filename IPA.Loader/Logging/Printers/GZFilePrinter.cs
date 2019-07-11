@@ -51,7 +51,7 @@ namespace IPA.Logging.Printers
                     var symlink = new FileInfo(Path.Combine(fileInfo.DirectoryName ?? throw new InvalidOperationException(), string.Format(latestFormat, ext)));
                     if (symlink.Exists) symlink.Delete();
 
-                    foreach (var file in fileInfo.Directory.EnumerateFiles("*.log", SearchOption.TopDirectoryOnly))
+                    foreach (var file in fileInfo.Directory.GetFiles("*.log", SearchOption.TopDirectoryOnly))
                     {
                         if (file.Equals(fileInfo)) continue;
                         if (file.Extension == ".gz") continue;
@@ -83,7 +83,7 @@ namespace IPA.Logging.Printers
             }
         }
 
-        private static async void CompressOldLog(FileInfo file)
+        private static void CompressOldLog(FileInfo file)
         {
             Logger.log.Debug($"Compressing log file {file}");
 
@@ -92,7 +92,11 @@ namespace IPA.Logging.Printers
             using (var istream = file.OpenRead())
             using (var ostream = newFile.Create())
             using (var gz = new GZipStream(ostream, CompressionMode.Compress, CompressionLevel.BestCompression, false))
-                await istream.CopyToAsync(gz);
+            {
+                int b = istream.ReadByte();
+                while (b != -1)
+                    gz.WriteByte((byte) b);
+            }
 
             file.Delete();
         }

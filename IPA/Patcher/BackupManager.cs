@@ -43,12 +43,12 @@ namespace IPA.Patcher
 
             try
             {
-                foreach (var d in Directory.EnumerateDirectories(dir))
+                foreach (var d in Directory.GetDirectories(dir))
                 {
                     DeleteEmptyDirs(d);
                 }
 
-                var entries = Directory.EnumerateFileSystemEntries(dir);
+                var entries = Directory.GetDirectories(dir);
 
                 if (entries.Any()) return;
                 try

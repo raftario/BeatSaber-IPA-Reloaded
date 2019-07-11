@@ -13,7 +13,7 @@ namespace IPA.Injector
     {
         public static Task FixPermissions(DirectoryInfo root)
         {
-            if (!root.Exists) return Task.CompletedTask;
+            if (!root.Exists) return Task.Run(() => true);
 
             return Task.Run(() =>
             {
@@ -34,9 +34,9 @@ namespace IPA.Injector
 
                         if (rule is FileSystemAccessRule fsrule
                             && fsrule.AccessControlType == AccessControlType.Allow
-                            && fsrule.InheritanceFlags.HasFlag(requestedInheritance)
+                            && fsrule.InheritanceFlags.ToString().Contains(requestedInheritance.ToString())
                             && fsrule.PropagationFlags == requestedPropagation
-                            && fsrule.FileSystemRights.HasFlag(requestedRights))
+                            && fsrule.FileSystemRights.ToString().Contains(requestedRights.ToString()))
                         { hasRule = true; break; }
                     }
 

@@ -1,11 +1,10 @@
 ::from ./bsinstalldir.txt
-"Beat Saber_Data/
+"MuseDash_Data/
 ""Managed/
 """Assembly-CSharp.dll
 """Unity.TextMeshPro.dll
 """UnityEngine.
 """"dll
-""""xml
 """"UnityWebRequestModule.
 """""dll
 """""xml
@@ -23,7 +22,3 @@
 """""Module.
 """"""dll
 """"""xml
-"Plugins/
-""BeatSaberCustomUI.
-"""dll
-"""xml

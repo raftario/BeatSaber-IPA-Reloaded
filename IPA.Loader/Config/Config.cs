@@ -106,7 +106,7 @@ namespace IPA.Config
         /// <param name="type">the type to register</param>
         public static void Register(Type type)
         {
-            if (!(type.GetCustomAttribute(typeof(TypeAttribute)) is TypeAttribute ext))
+            if (!(type.GetCustomAttributes(typeof(TypeAttribute), true)[0] is TypeAttribute ext))
                 throw new InvalidOperationException("Type does not have TypeAttribute");
 
             if (!typeof(IConfigProvider).IsAssignableFrom(type))
@@ -143,9 +143,9 @@ namespace IPA.Config
         internal static IConfigProvider GetProviderFor(string modName, ParameterInfo info)
         {
             var prefs = new string[0];
-            if (info.GetCustomAttribute<PreferAttribute>() is PreferAttribute prefer)
+            if (info.GetCustomAttributes(typeof(PreferAttribute), true)[0] is PreferAttribute prefer)
                 prefs = prefer.PreferenceOrder;
-            if (info.GetCustomAttribute<NameAttribute>() is NameAttribute name)
+            if (info.GetCustomAttributes(typeof(NameAttribute), true)[0] is NameAttribute name)
                 modName = name.Name;
 
             return GetProviderFor(modName, prefs);
